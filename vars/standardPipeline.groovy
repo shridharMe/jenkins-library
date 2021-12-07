@@ -1,4 +1,5 @@
 def call(Map pipelineParams) {
+    stages{
        stage ('print Params') {
             steps {
                   sh '''
