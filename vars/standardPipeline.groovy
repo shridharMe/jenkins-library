@@ -1,15 +1,12 @@
 def call(Map pipelineParams) {
-pipeline {
-    agent  any
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '5', daysToKeepStr: '14'))
-        timestamps()
-    }
-    environment { 
-        ENV_NAME                 = "dev" 
-        SQUAD_NAME               = "devops"
-    }
-    stages {
+       stage ('print Params') {
+            steps {
+                  sh '''
+                      echo "terraform init"
+                    '''
+ 
+                }
+        }
         stage ('terraform init') {
             steps {
                   sh '''
@@ -63,6 +60,4 @@ pipeline {
              }
         }
     }
-}
-
 }
