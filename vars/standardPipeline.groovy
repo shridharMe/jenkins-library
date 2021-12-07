@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-def call(Map pipelineParams) {
+def call() {
  
        stage ('print Params') {
     
