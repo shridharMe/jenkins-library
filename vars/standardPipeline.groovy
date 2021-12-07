@@ -3,10 +3,7 @@ def call() {
  
        stage ('print Params') {
     
-                  sh '''
-                      echo "terraform init"
-                    '''
- 
+                  println params
                
         }
         stage ('terraform init') {
