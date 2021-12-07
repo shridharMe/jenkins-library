@@ -26,15 +26,14 @@ def call(Map pipelineParams) {
              
         }
         stage ('terraform apply') {
-           when {
-                expression { env.GIT_BRANCH == 'origin/master' }   
-            }
-           
-                  sh '''
-                      echo "terraform apply"
-                    '''
- 
-             
+         if (env.GIT_BRANCH == 'origin/master' ){
+          
+                sh '''
+                 echo "terraform apply"
+         '''
+         }
+    
+
         }
  
     }
