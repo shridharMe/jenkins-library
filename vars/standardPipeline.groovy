@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 def call(Map pipelineParams) {
-    stages{
+ 
        stage ('print Params') {
             steps {
                   sh '''
@@ -61,5 +61,5 @@ def call(Map pipelineParams) {
                       '''
              }
         }
-    }
+ 
 }
