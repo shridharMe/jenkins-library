@@ -13,32 +13,41 @@ def call() {
     stages{
     
        stage ('print Params') {
-    
+        steps {
+                script{
                   println params
-               
+                }
+         } 
         }
         stage ('terraform init') {
-            
+            steps {
+                script{
                   sh '''
                       echo "terraform init"
                     '''
- 
-               
+                  }
+              }   
         }
         stage ('terraform plan') {
-          
+            steps {
+                script{
                   sh '''
                       echo "terraform plan"
                     '''
- 
+                }
+                }
              
         }
         stage ('terraform apply') {
+                     steps {
+                script{
          if (env.GIT_BRANCH == 'origin/master' ){
           
                 sh '''
                  echo "terraform apply"
          '''
+         }
+                }
          }
     
 
