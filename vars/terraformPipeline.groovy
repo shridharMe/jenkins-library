@@ -41,7 +41,7 @@ def call() {
         stage ('terraform test') {
             steps {
                 script{
-                    sh "ls -lrt $WORKSPACE/testing/result/"
+                    sh "ls -lrt"
                     cucumber buildStatus: 'FAILURE', customCssFiles: '', customJsFiles: '', failedFeaturesNumber: 1, failedScenariosNumber: 1, failedStepsNumber: 1, fileIncludePattern: '*.json', jsonReportDirectory: 'testing/result/', pendingStepsNumber: 1, reportTitle: 'terraform-complaince', skippedStepsNumber: 1, sortingMethod: 'ALPHABETICAL', stopBuildOnFailedReport: true, undefinedStepsNumber: 1
                 }
             }
