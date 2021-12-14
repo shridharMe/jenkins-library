@@ -38,19 +38,24 @@ def call() {
                 }
              
         }
-        stage ('terraform apply') {
-                     steps {
+        stage ('terraform test') {
+            steps {
                 script{
-         if (env.GIT_BRANCH == 'origin/master' ){
-          
-                sh '''
-                 echo "terraform apply"
-         '''
-         }
+                    cucumber buildStatus: 'FAILURE', customCssFiles: '', customJsFiles: '', failedFeaturesNumber: 1, failedScenariosNumber: 1, failedStepsNumber: 1, fileIncludePattern: '**/*.json', jsonReportDirectory: 'testing/result/', pendingStepsNumber: 1, reportTitle: 'terraform-complaince', skippedStepsNumber: 1, sortingMethod: 'ALPHABETICAL', stopBuildOnFailedReport: true, undefinedStepsNumber: 1
                 }
-         }
-    
-
+            }
+        }
+        stage ('terraform apply') {
+            steps {
+                script{
+                    if (env.GIT_BRANCH == 'origin/master' ){
+                    
+                            sh '''
+                            echo "terraform apply"
+                        '''
+                    }
+                }
+            }
         }
         
     }
