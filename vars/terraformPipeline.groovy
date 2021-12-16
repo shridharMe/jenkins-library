@@ -49,14 +49,16 @@ def call() {
             }
         }
         stage ('terraform apply') {
+         when {
+               expression { env.GIT_BRANCH == 'origin/master' }                                 
+          }	
             steps {
                 script{
-                    if (env.GIT_BRANCH == 'origin/master' ){
-                    
-                            sh '''
+           
+                       sh '''
                             echo "terraform apply"
                         '''
-                    }
+                    
                 }
             }
         }
