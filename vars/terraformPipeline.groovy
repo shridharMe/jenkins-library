@@ -54,7 +54,8 @@ def call() {
           }	
             steps {
                 script{
-           
+                      println env.GIT_BRANCH
+                      println env.BRANCH_NAME
                        sh '''
                             echo "terraform apply"
                         '''
