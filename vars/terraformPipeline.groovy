@@ -50,11 +50,10 @@ def call() {
         }
         stage ('terraform apply') {
          when {
-               expression { env.GIT_BRANCH == 'origin/master' }                                 
+               expression { env.GIT_BRANCH == 'master' }                                 
           }	
             steps {
                 script{
-                    println env.CHANGE_BRANCH
                     sh '''
                       echo "terraform apply"
                      '''
