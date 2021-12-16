@@ -54,6 +54,7 @@ def call() {
           }	
             steps {
                 script{
+                    println env.CHANGE_BRANCH
                     sh '''
                       echo "terraform apply"
                      '''
